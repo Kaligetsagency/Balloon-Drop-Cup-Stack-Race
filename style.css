@@ -1,0 +1,151 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #ffffff;
+    --p1-color: #0f3460; /* Blue cups */
+    --p2-color: #e94560; /* Pink cups */
+    --accent: #e2a829;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    touch-action: manipulation; /* Prevents double-tap zoom on mobile */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    position: relative;
+    background: #16213e;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Typography & Utilities */
+h1 { margin-bottom: 10px; font-size: 2rem; }
+.highlight { font-weight: bold; color: var(--accent); user-select: all; }
+.p1-color { color: #4facfe; }
+.p2-color { color: var(--p2-color); }
+
+/* Buttons */
+.btn {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: transform 0.1s;
+    width: 100%;
+}
+.btn:active { transform: scale(0.95); }
+.btn.primary { background: var(--accent); color: #000; }
+.btn.secondary { background: #555; color: #fff; }
+.btn.action { height: 80px; font-size: 1.5rem; margin: 5px; }
+.stack-btn { background: #4facfe; color: #000; flex: 2; }
+.catch-btn { background: var(--p2-color); color: #fff; flex: 1; }
+
+/* Lobby UI */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Game UI */
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.score-box { flex: 1; }
+.score-box h2 { font-size: 2.5rem; }
+.target-score { font-size: 0.9rem; opacity: 0.8; }
+
+#play-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#balloon-container {
+    flex: 1;
+    position: relative;
+    border-left: 2px dashed rgba(255,255,255,0.2);
+    border-right: 2px dashed rgba(255,255,255,0.2);
+    margin: 0 20px;
+}
+
+#balloon {
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.1s linear;
+}
+
+#floor {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: red;
+    box-shadow: 0 0 10px red;
+}
+
+.stacks {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+.stack h1 { font-size: 4rem; margin: 0; }
+
+#controls {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+/* Game Over */
+#game-over { justify-content: center; }
+#game-over h1 { font-size: 3rem; margin-bottom: 20px; }
