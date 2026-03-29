@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Balloon Drop: Cup Stack</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="lobby" class="screen active">
+            <h1>Balloon Drop</h1>
+            <p>Stack cups fast, but catch the balloon before it falls!</p>
+            
+            <div class="card">
+                <h3>Play AI</h3>
+                <button id="btn-ai" class="btn primary">Play vs Computer</button>
+            </div>
+
+            <div class="card">
+                <h3>Multiplayer (P2P)</h3>
+                <p>Your ID: <span id="my-id" class="highlight">Loading...</span></p>
+                <button id="btn-copy-id" class="btn secondary">Copy My ID</button>
+                <hr>
+                <input type="text" id="join-id" placeholder="Enter Friend's ID">
+                <button id="btn-join" class="btn primary">Join Friend</button>
+            </div>
+            <p id="connection-status"></p>
+        </div>
+
+        <div id="game" class="screen">
+            <div id="game-header">
+                <div class="score-box p1-color">
+                    <span>You</span>
+                    <h2 id="p1-score">0</h2>
+                </div>
+                <div class="target-score">Target: 50</div>
+                <div class="score-box p2-color">
+                    <span id="p2-name">Opponent</span>
+                    <h2 id="p2-score">0</h2>
+                </div>
+            </div>
+
+            <div id="play-area">
+                <div id="balloon-container">
+                    <div id="balloon">🎈</div>
+                    <div id="floor"></div>
+                </div>
+                
+                <div class="stacks">
+                    <div class="stack">
+                        <div>Temp Cups</div>
+                        <h1 id="p1-temp" class="p1-color">0</h1>
+                    </div>
+                    <div class="stack">
+                        <div>Temp Cups</div>
+                        <h1 id="p2-temp" class="p2-color">0</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div id="controls">
+                <button id="btn-stack" class="btn action stack-btn">STACK CUP!</button>
+                <button id="btn-catch" class="btn action catch-btn">CATCH!</button>
+            </div>
+        </div>
+
+        <div id="game-over" class="screen">
+            <h1 id="winner-text">You Win!</h1>
+            <p>Final Score: <span id="final-score-text"></span></p>
+            <button id="btn-replay" class="btn primary">Play Again</button>
+            <button id="btn-menu" class="btn secondary">Main Menu</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
